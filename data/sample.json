@@ -1,9 +1,17 @@
 {
-  "event_id": "092108-002-sample-001",
-  "event_type": "OBJECT_INSPECTED",
+  "event_id": "092208-001-sample-001",
+  "event_type": "OBJECT_REGISTERED",
   "aggregate_type": "puppet_object",
-  "aggregate_id": "shadow_puppet_performance_care-001",
-  "occurred_at": "2026-09-20T18:00:00+08:00",
+  "aggregate_id": "puppet-ming-sunwukong-001",
+  "occurred_at": "2026-09-22T08:00:00+08:00",
   "version": 1,
-  "summary": "登记皮影古件演出保全的首条领域记录"
+  "summary": "老件影偶登记：明代·孙悟空（约1580年）",
+  "payload": {
+    "puppet_id": "puppet-ming-sunwukong-001",
+    "name": "明代·孙悟空",
+    "artifact_class": "antique",
+    "dating": "明代·约1580年",
+    "acquired_at": "1987-03-12",
+    "note": "家族传承，头部与右臂分体登记；上台须经保存状态、环境与授权三重门"
+  }
 }

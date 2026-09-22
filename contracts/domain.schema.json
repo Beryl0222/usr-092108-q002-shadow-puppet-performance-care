@@ -19,9 +19,37 @@
     "event_type": {
       "type": "string",
       "enum": [
-        "OBJECT_INSPECTED",
+        "OBJECT_REGISTERED",
+        "PART_REGISTERED",
+        "DAMAGE_OBSERVED",
+        "PART_FROZEN",
+        "REPAIR_LAYER_ADDED",
+        "PART_RETURNED_TO_SERVICE",
+        "SUBSTITUTE_REGISTERED",
+        "PLAYABLE_ROLE_DECLARED",
+        "HANDLING_LEVEL_SET",
+        "ENVIRONMENT_RECORDED",
         "PERFORMANCE_PLANNED",
+        "PLAY_SWAPPED",
+        "CASTING_CHANGED",
+        "OPERATOR_ASSIGNED",
+        "CLEARANCE_EVALUATED",
+        "STAGE_AUTHORIZATION_GRANTED",
+        "STAGE_USE_BLOCKED",
         "SUBSTITUTE_ASSIGNED",
+        "PLAN_CANCELLED",
+        "LOAN_CHECKED_OUT",
+        "CUSTODY_TRANSFERRED",
+        "LOAN_RETURNED",
+        "ITEM_MARKED_MISSING",
+        "CUSTODY_CONFLICT_DETECTED",
+        "APPRENTICE_ENROLLED",
+        "TRAINING_LEVEL_RECORDED",
+        "MASTER_REVIEW_PASSED",
+        "HANDLING_PRIVILEGE_GRANTED",
+        "CONSERVATION_ACTION_OPENED",
+        "CONSERVATION_ACTION_CLOSED",
+        "OBJECT_INSPECTED",
         "REPAIR_RECORDED",
         "CLEARANCE_GRANTED"
       ]
@@ -32,7 +60,10 @@
         "puppet_object",
         "performance_plan",
         "conservation_action",
-        "operator_clearance"
+        "operator_clearance",
+        "loan_record",
+        "apprentice_clearance",
+        "environment_log"
       ]
     },
     "aggregate_id": {
@@ -50,7 +81,246 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "caused_by": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "sync_batch_id": {
+      "type": "string"
+    },
+    "expected_version": {
+      "type": "integer",
+      "minimum": 0
+    },
+    "payload": {
+      "type": "object"
     }
   },
-  "additionalProperties": true
+  "additionalProperties": true,
+  "allOf": [
+    {
+      "if": { "properties": { "event_type": { "const": "OBJECT_REGISTERED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "puppet_object" },
+          "payload": {
+            "required": ["puppet_id", "name", "artifact_class", "dating"],
+            "properties": {
+              "artifact_class": { "enum": ["antique", "replica"] }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "DAMAGE_OBSERVED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "puppet_object" },
+          "payload": {
+            "required": ["puppet_id", "part_id", "damage_kind", "severity", "description", "observed_by", "part_only"],
+            "properties": {
+              "damage_kind": { "enum": ["crack", "worm", "fracture", "surface_wear", "loose_joint", "other"] },
+              "severity": { "enum": [1, 2, 3] },
+              "part_only": { "type": "boolean" }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "REPAIR_LAYER_ADDED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "puppet_object" },
+          "payload": {
+            "required": ["puppet_id", "part_id", "repair_id", "layer_no", "materials", "techniques", "conservator_id"],
+            "properties": {
+              "layer_no": { "type": "integer", "minimum": 1 },
+              "materials": { "type": "array", "items": { "type": "string" }, "minItems": 1 },
+              "techniques": { "type": "array", "items": { "type": "string" }, "minItems": 1 }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "SUBSTITUTE_REGISTERED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "puppet_object" },
+          "payload": {
+            "required": ["replica_puppet_id", "antique_puppet_id", "covers_part_ids", "approved_roles", "approved_by"],
+            "properties": {
+              "covers_part_ids": { "type": "array", "items": { "type": "string" } },
+              "approved_roles": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["play_id", "role"],
+                  "properties": {
+                    "play_id": { "type": "string" },
+                    "role": { "type": "string" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "ENVIRONMENT_RECORDED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "environment_log" },
+          "payload": {
+            "required": ["location", "temp_c", "humidity_pct", "recorded_by", "puppet_ids_present"],
+            "properties": {
+              "temp_c": { "type": "number" },
+              "humidity_pct": { "type": "number", "minimum": 0, "maximum": 100 },
+              "puppet_ids_present": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "PERFORMANCE_PLANNED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "performance_plan" },
+          "payload": {
+            "required": ["plan_id", "occasion", "title", "venue", "starts_at", "tickets_sold", "items", "planned_by"],
+            "properties": {
+              "occasion": { "enum": ["festival", "village", "training", "rehearsal", "other"] },
+              "tickets_sold": { "type": "boolean" },
+              "items": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["item_id", "play_id", "role", "puppet_id"]
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "CLEARANCE_EVALUATED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "performance_plan" },
+          "payload": {
+            "required": ["plan_id", "item_id", "puppet_id", "decision", "reasons", "evaluated_by"],
+            "properties": {
+              "decision": { "enum": ["cleared", "blocked"] },
+              "reasons": { "type": "array", "items": { "type": "string" } }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "LOAN_CHECKED_OUT" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "loan_record" },
+          "payload": {
+            "required": ["loan_id", "puppet_id", "custodian_id", "purpose"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "CUSTODY_TRANSFERRED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "loan_record" },
+          "payload": {
+            "required": ["loan_id", "puppet_id", "from_custodian_id", "to_custodian_id", "handoff_note"]
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "LOAN_RETURNED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "loan_record" },
+          "payload": {
+            "required": ["loan_id", "puppet_id", "returned_by", "condition_note", "parts_checked"],
+            "properties": {
+              "parts_checked": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "required": ["part_id", "present"],
+                  "properties": { "present": { "type": "boolean" } }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "APPRENTICE_ENROLLED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "apprentice_clearance" },
+          "payload": {
+            "required": ["apprentice_id", "name", "minor", "enrolled_by"],
+            "properties": { "minor": { "type": "boolean" } }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "TRAINING_LEVEL_RECORDED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "apprentice_clearance" },
+          "payload": {
+            "required": ["apprentice_id", "competency", "stage", "layer", "recorded_by"],
+            "properties": {
+              "competency": { "enum": ["manipulation", "crafting", "repair"] },
+              "stage": { "enum": ["none", "trainee", "supervised", "independent"] },
+              "layer": { "type": "integer", "minimum": 1 }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "MASTER_REVIEW_PASSED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "apprentice_clearance" },
+          "payload": {
+            "required": ["apprentice_id", "competency", "reviewer_id"],
+            "properties": {
+              "competency": { "enum": ["manipulation", "crafting", "repair"] }
+            }
+          }
+        }
+      }
+    },
+    {
+      "if": { "properties": { "event_type": { "const": "HANDLING_PRIVILEGE_GRANTED" } } },
+      "then": {
+        "properties": {
+          "aggregate_type": { "const": "apprentice_clearance" },
+          "payload": {
+            "required": ["apprentice_id", "handling_level", "granted_by"],
+            "properties": {
+              "handling_level": { "enum": ["authentic", "replica"] }
+            }
+          }
+        }
+      }
+    }
+  ]
 }

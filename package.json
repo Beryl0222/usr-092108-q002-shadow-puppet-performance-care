@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "description": "领域事件基础校验",
+  "description": "皮影古件演出保全：影偶保全、排演放行、借用交接与学徒资格的事件溯源领域内核",
   "scripts": {
     "test": "node --test"
   }
