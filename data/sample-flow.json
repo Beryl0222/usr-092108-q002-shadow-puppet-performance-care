@@ -1,0 +1,1062 @@
+[
+  {
+    "event_id": "0922003057-object_registered-001-be4840ad",
+    "event_type": "OBJECT_REGISTERED",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.510Z",
+    "version": 1,
+    "summary": "登记影偶《老旦影偶（明万历传世）》（一级文物）",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "name": "老旦影偶（明万历传世）",
+      "grade": "一级文物",
+      "dynasty": "明万历",
+      "year_estimate": "约1580年代（四百余年）",
+      "registered_by": "传承人-田",
+      "parts": [
+        {
+          "part_id": "P-头茬",
+          "name": "头茬",
+          "condition": "完好"
+        },
+        {
+          "part_id": "P-胸腹",
+          "name": "胸腹",
+          "condition": "完好"
+        },
+        {
+          "part_id": "P-左臂",
+          "name": "左臂",
+          "condition": "完好"
+        },
+        {
+          "part_id": "P-右臂",
+          "name": "右臂",
+          "condition": "完好"
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "0922003057-repertoire_set-002-bdb6fbb8",
+    "event_type": "REPERTOIRE_SET",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 2,
+    "summary": "更新《老旦影偶（明万历传世）》可用剧目 2 出",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "plays": [
+        "鹤峰记",
+        "碧潭会"
+      ],
+      "updated_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-object_registered-003-f6f9e709",
+    "event_type": "OBJECT_REGISTERED",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "RP-老旦-复刻A",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 1,
+    "summary": "登记影偶《老旦复制品甲》（核准复制品）",
+    "payload": {
+      "object_id": "RP-老旦-复刻A",
+      "name": "老旦复制品甲",
+      "grade": "核准复制品",
+      "year_estimate": "2024年传统工艺复制",
+      "registered_by": "修缮师-覃",
+      "parts": [
+        {
+          "part_id": "P-头茬",
+          "name": "头茬",
+          "condition": "完好"
+        },
+        {
+          "part_id": "P-胸腹",
+          "name": "胸腹",
+          "condition": "完好"
+        },
+        {
+          "part_id": "P-左臂",
+          "name": "左臂",
+          "condition": "完好"
+        },
+        {
+          "part_id": "P-右臂",
+          "name": "右臂",
+          "condition": "完好"
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "0922003057-repertoire_set-004-7281659b",
+    "event_type": "REPERTOIRE_SET",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "RP-老旦-复刻A",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 2,
+    "summary": "更新《老旦复制品甲》可用剧目 2 出",
+    "payload": {
+      "object_id": "RP-老旦-复刻A",
+      "plays": [
+        "鹤峰记",
+        "碧潭会"
+      ],
+      "updated_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-object_registered-005-5c6bb5e9",
+    "event_type": "OBJECT_REGISTERED",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "RP-小旦-复刻B",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 1,
+    "summary": "登记影偶《小旦复制品乙》（核准复制品）",
+    "payload": {
+      "object_id": "RP-小旦-复刻B",
+      "name": "小旦复制品乙",
+      "grade": "核准复制品",
+      "year_estimate": "2025年传统工艺复制",
+      "registered_by": "修缮师-覃",
+      "parts": [
+        {
+          "part_id": "P-头茬",
+          "name": "头茬",
+          "condition": "完好"
+        },
+        {
+          "part_id": "P-胸腹",
+          "name": "胸腹",
+          "condition": "完好"
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "0922003057-repertoire_set-006-108d8bab",
+    "event_type": "REPERTOIRE_SET",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "RP-小旦-复刻B",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 2,
+    "summary": "更新《小旦复制品乙》可用剧目 1 出",
+    "payload": {
+      "object_id": "RP-小旦-复刻B",
+      "plays": [
+        "鹤峰记"
+      ],
+      "updated_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-substitute_approved-007-2f5fde6b",
+    "event_type": "SUBSTITUTE_APPROVED",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 3,
+    "summary": "核准复制品 老旦复制品甲 接替角色 ROLE-老旦",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "replica_id": "RP-老旦-复刻A",
+      "role_id": "ROLE-老旦",
+      "approved_by": "传承人-田",
+      "note": "头茬形制与操纵手感经核验一致"
+    }
+  },
+  {
+    "event_id": "0922003057-apprentice_enrolled-008-972bd6ee",
+    "event_type": "APPRENTICE_ENROLLED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 1,
+    "summary": "学徒 阿英 入门（成年），师傅 传承人-田",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "name": "阿英",
+      "minor": false,
+      "master_id": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-apprentice_enrolled-009-931d0993",
+    "event_type": "APPRENTICE_ENROLLED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-小禾",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 1,
+    "summary": "学徒 小禾 入门（未成年），师傅 传承人-田",
+    "payload": {
+      "apprentice_id": "AP-小禾",
+      "name": "小禾",
+      "minor": true,
+      "master_id": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-010-ca632199",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 2,
+    "summary": "阿英 登记操控训练：观摩",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "观摩",
+      "logged_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-011-fc3103fe",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 3,
+    "summary": "师傅复核 阿英「观摩」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "观摩",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-012-72fa3d2b",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 4,
+    "summary": "阿英 登记操控训练：把杆辅助",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "把杆辅助",
+      "logged_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-013-f3b37e32",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 5,
+    "summary": "师傅复核 阿英「把杆辅助」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "把杆辅助",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-014-e1792c9f",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 6,
+    "summary": "阿英 登记操控训练：复制品独立",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "复制品独立",
+      "logged_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-015-d4d17b6b",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 7,
+    "summary": "师傅复核 阿英「复制品独立」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "复制品独立",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-016-aeb599b2",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 8,
+    "summary": "阿英 登记操控训练：真品协演",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "真品协演",
+      "logged_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-017-b6f35c2f",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.512Z",
+    "version": 9,
+    "summary": "师傅复核 阿英「真品协演」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "真品协演",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-018-9f86645c",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 10,
+    "summary": "阿英 登记操控训练：独立操控",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "独立操控",
+      "logged_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-019-e713e6ad",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 11,
+    "summary": "师傅复核 阿英「独立操控」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "独立操控",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-qualification_granted-020-966ef557",
+    "event_type": "QUALIFICATION_GRANTED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 12,
+    "summary": "阿英 取得独立操控资格",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "操控",
+      "level": "独立操控",
+      "granted_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-021-4ddb8713",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 13,
+    "summary": "阿英 登记修补训练：修复观摩",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "修复观摩",
+      "logged_by": "修缮师-覃"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-022-5bd329ef",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 14,
+    "summary": "师傅复核 阿英「修复观摩」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "修复观摩",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-023-024a1464",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 15,
+    "summary": "阿英 登记修补训练：辅料备制",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "辅料备制",
+      "logged_by": "修缮师-覃"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-024-985593b6",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 16,
+    "summary": "师傅复核 阿英「辅料备制」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "辅料备制",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-025-26a1bff3",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 17,
+    "summary": "阿英 登记修补训练：复制品试修",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "复制品试修",
+      "logged_by": "修缮师-覃"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-026-dcad45ec",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 18,
+    "summary": "师傅复核 阿英「复制品试修」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "复制品试修",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-027-f1f08d79",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 19,
+    "summary": "阿英 登记修补训练：配补作业",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "配补作业",
+      "logged_by": "修缮师-覃"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-028-8f44b4de",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 20,
+    "summary": "师傅复核 阿英「配补作业」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "配补作业",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-029-c9c688e6",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 21,
+    "summary": "阿英 登记修补训练：独立修补",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "独立修补",
+      "logged_by": "修缮师-覃"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-030-104bd345",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 22,
+    "summary": "师傅复核 阿英「独立修补」：通过",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "独立修补",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-qualification_granted-031-ddea0605",
+    "event_type": "QUALIFICATION_GRANTED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-阿英",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 23,
+    "summary": "阿英 取得独立修补资格",
+    "payload": {
+      "apprentice_id": "AP-阿英",
+      "discipline": "修补",
+      "level": "独立修补",
+      "granted_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-032-d17afbea",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-小禾",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 2,
+    "summary": "小禾 登记操控训练：观摩",
+    "payload": {
+      "apprentice_id": "AP-小禾",
+      "discipline": "操控",
+      "level": "观摩",
+      "logged_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-033-9553f851",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-小禾",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 3,
+    "summary": "师傅复核 小禾「观摩」：通过",
+    "payload": {
+      "apprentice_id": "AP-小禾",
+      "discipline": "操控",
+      "level": "观摩",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-034-773fad8b",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-小禾",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 4,
+    "summary": "小禾 登记操控训练：把杆辅助",
+    "payload": {
+      "apprentice_id": "AP-小禾",
+      "discipline": "操控",
+      "level": "把杆辅助",
+      "logged_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-035-b376907a",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-小禾",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 5,
+    "summary": "师傅复核 小禾「把杆辅助」：通过",
+    "payload": {
+      "apprentice_id": "AP-小禾",
+      "discipline": "操控",
+      "level": "把杆辅助",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-training_logged-036-ce992d8c",
+    "event_type": "TRAINING_LOGGED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-小禾",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 6,
+    "summary": "小禾 登记操控训练：复制品独立",
+    "payload": {
+      "apprentice_id": "AP-小禾",
+      "discipline": "操控",
+      "level": "复制品独立",
+      "logged_by": "传承人-田"
+    }
+  },
+  {
+    "event_id": "0922003057-training_reviewed-037-883043d1",
+    "event_type": "TRAINING_REVIEWED",
+    "aggregate_type": "operator_clearance",
+    "aggregate_id": "AP-小禾",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 7,
+    "summary": "师傅复核 小禾「复制品独立」：通过",
+    "payload": {
+      "apprentice_id": "AP-小禾",
+      "discipline": "操控",
+      "level": "复制品独立",
+      "reviewer_id": "传承人-田",
+      "passed": true
+    }
+  },
+  {
+    "event_id": "0922003057-performance_planned-038-48071c01",
+    "event_type": "PERFORMANCE_PLANNED",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 1,
+    "summary": "排期《鹤峰记》@走马村晒谷场（正式演出，已售票）",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "title": "鹤峰记",
+      "venue": "走马村晒谷场",
+      "purpose": "正式演出",
+      "scheduled_start": "2026-09-25T19:30:00+08:00",
+      "scheduled_end": "2026-09-25T21:00:00+08:00",
+      "ticket_sold": true,
+      "planned_by": "演出经理-向"
+    }
+  },
+  {
+    "event_id": "0922003057-role_cast-039-6944ac62",
+    "event_type": "ROLE_CAST",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 2,
+    "summary": "派戏 老旦：《老旦影偶（明万历传世）》/ 艺人-周",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-老旦",
+      "role_name": "老旦",
+      "object_id": "PP-老旦-001",
+      "operator_id": "艺人-周"
+    }
+  },
+  {
+    "event_id": "0922003057-environment_recorded-040-be1716a9",
+    "event_type": "ENVIRONMENT_RECORDED",
+    "aggregate_type": "environment_record",
+    "aggregate_id": "ENV-0925-傍晚高湿",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 1,
+    "summary": "记录 走马村晒谷场 环境 82%RH / 24℃",
+    "payload": {
+      "reading_id": "ENV-0925-傍晚高湿",
+      "location": "走马村晒谷场",
+      "humidity": 82,
+      "temperature": 24,
+      "recorded_by": "演出经理-向",
+      "performance_id": "PF-2026中秋-走马村"
+    }
+  },
+  {
+    "event_id": "0922003057-stage_clearance_requested-041-fc829c4a",
+    "event_type": "STAGE_CLEARANCE_REQUESTED",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.513Z",
+    "version": 3,
+    "summary": "请求上台核验：老旦",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-老旦",
+      "object_id": "PP-老旦-001",
+      "reading_id": "ENV-0925-傍晚高湿",
+      "requested_by": "演出经理-向"
+    }
+  },
+  {
+    "event_id": "0922003057-clearance_denied-042-90d5aa94",
+    "event_type": "CLEARANCE_DENIED",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.514Z",
+    "version": 4,
+    "summary": "暂缓上台：老旦（一级文物默认不上台，须逐场书面特批（文号/批准人/理由齐全）；相对湿度 82%RH 超出安全区间 45–65%RH）",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-老旦",
+      "object_id": "PP-老旦-001",
+      "decided_by": "修缮师-覃",
+      "reasons": [
+        "一级文物默认不上台，须逐场书面特批（文号/批准人/理由齐全）",
+        "相对湿度 82%RH 超出安全区间 45–65%RH"
+      ]
+    }
+  },
+  {
+    "event_id": "0922003057-damage_reported-043-4c767e8f",
+    "event_type": "DAMAGE_REPORTED",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.515Z",
+    "version": 4,
+    "summary": "报损 1 个部件，仅冻结相关部件",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "reporter_id": "艺人-周",
+      "findings": [
+        {
+          "part_id": "P-右臂",
+          "condition": "开裂",
+          "note": "袖根处见横向裂纹"
+        }
+      ]
+    }
+  },
+  {
+    "event_id": "0922003057-role_substituted-044-d4abc138",
+    "event_type": "ROLE_SUBSTITUTED",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.515Z",
+    "version": 5,
+    "summary": "换角 老旦：《老旦影偶（明万历传世）》→ 复制品《老旦复制品甲》",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-老旦",
+      "from_object_id": "PP-老旦-001",
+      "to_object_id": "RP-老旦-复刻A",
+      "reason": "老旦右臂开裂且现场高湿，改派复制品",
+      "decided_by": "演出经理-向"
+    }
+  },
+  {
+    "event_id": "0922003057-role_cast-045-8079566f",
+    "event_type": "ROLE_CAST",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.515Z",
+    "version": 6,
+    "summary": "派戏 小旦：《小旦复制品乙》/ AP-小禾",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-小旦",
+      "role_name": "小旦",
+      "object_id": "RP-小旦-复刻B",
+      "operator_id": "AP-小禾"
+    }
+  },
+  {
+    "event_id": "0922003057-environment_recorded-046-0353f7de",
+    "event_type": "ENVIRONMENT_RECORDED",
+    "aggregate_type": "environment_record",
+    "aggregate_id": "ENV-0925-开演复测",
+    "occurred_at": "2026-09-22T00:30:57.515Z",
+    "version": 1,
+    "summary": "记录 走马村晒谷场 环境 60%RH / 23℃",
+    "payload": {
+      "reading_id": "ENV-0925-开演复测",
+      "location": "走马村晒谷场",
+      "humidity": 60,
+      "temperature": 23,
+      "recorded_by": "演出经理-向",
+      "performance_id": "PF-2026中秋-走马村"
+    }
+  },
+  {
+    "event_id": "0922003057-stage_clearance_requested-047-dd3a179d",
+    "event_type": "STAGE_CLEARANCE_REQUESTED",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.515Z",
+    "version": 7,
+    "summary": "请求上台核验：老旦",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-老旦",
+      "object_id": "RP-老旦-复刻A",
+      "reading_id": "ENV-0925-开演复测",
+      "requested_by": "演出经理-向"
+    }
+  },
+  {
+    "event_id": "0922003057-clearance_granted-048-4cec7398",
+    "event_type": "CLEARANCE_GRANTED",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.515Z",
+    "version": 8,
+    "summary": "准许上台：老旦《老旦复制品甲》（三因子通过）",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-老旦",
+      "object_id": "RP-老旦-复刻A",
+      "granted_by": "修缮师-覃",
+      "scope_part_ids": [
+        "P-头茬",
+        "P-胸腹",
+        "P-左臂",
+        "P-右臂"
+      ]
+    }
+  },
+  {
+    "event_id": "0922003057-stage_clearance_requested-049-c880c22c",
+    "event_type": "STAGE_CLEARANCE_REQUESTED",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.515Z",
+    "version": 9,
+    "summary": "请求上台核验：小旦",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-小旦",
+      "object_id": "RP-小旦-复刻B",
+      "reading_id": "ENV-0925-开演复测",
+      "requested_by": "演出经理-向"
+    }
+  },
+  {
+    "event_id": "0922003057-clearance_granted-050-ddfd87d0",
+    "event_type": "CLEARANCE_GRANTED",
+    "aggregate_type": "performance_plan",
+    "aggregate_id": "PF-2026中秋-走马村",
+    "occurred_at": "2026-09-22T00:30:57.515Z",
+    "version": 10,
+    "summary": "准许上台：小旦《小旦复制品乙》（三因子通过）",
+    "payload": {
+      "performance_id": "PF-2026中秋-走马村",
+      "role_id": "ROLE-小旦",
+      "object_id": "RP-小旦-复刻B",
+      "granted_by": "修缮师-覃",
+      "scope_part_ids": [
+        "P-头茬",
+        "P-胸腹"
+      ]
+    }
+  },
+  {
+    "event_id": "0922003057-repair_recorded-051-68f53938",
+    "event_type": "REPAIR_RECORDED",
+    "aggregate_type": "conservation_action",
+    "aggregate_id": "FX-右臂-01",
+    "occurred_at": "2026-09-22T00:30:57.516Z",
+    "version": 1,
+    "summary": "记录第 1 层修复：传统驴皮鳔胶、同色矿粉",
+    "payload": {
+      "repair_id": "FX-右臂-01",
+      "object_id": "PP-老旦-001",
+      "part_id": "P-右臂",
+      "restorer_id": "修缮师-覃",
+      "materials": [
+        "传统驴皮鳔胶",
+        "同色矿粉"
+      ],
+      "techniques": [
+        "裂纹对合",
+        "薄皮背衬"
+      ],
+      "note": "第一层：原位粘合，保留断口旧痕"
+    }
+  },
+  {
+    "event_id": "0922003057-repair_recorded-052-8accf57a",
+    "event_type": "REPAIR_RECORDED",
+    "aggregate_type": "conservation_action",
+    "aggregate_id": "FX-右臂-02",
+    "occurred_at": "2026-09-22T00:30:57.517Z",
+    "version": 1,
+    "summary": "记录第 2 层修复：核桃油",
+    "payload": {
+      "repair_id": "FX-右臂-02",
+      "object_id": "PP-老旦-001",
+      "part_id": "P-右臂",
+      "restorer_id": "修缮师-覃",
+      "apprentice_id": "AP-阿英",
+      "materials": [
+        "核桃油"
+      ],
+      "techniques": [
+        "缓性回润"
+      ],
+      "note": "第二层返工：回润养护，不改动第一层粘痕"
+    }
+  },
+  {
+    "event_id": "0922003057-part_cleared-053-878c20d5",
+    "event_type": "PART_CLEARED",
+    "aggregate_type": "puppet_object",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.517Z",
+    "version": 5,
+    "summary": "复检合格，部件 右臂 解冻",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "part_id": "P-右臂",
+      "inspector_id": "修缮师-覃",
+      "note": "复检裂纹稳定，解冻"
+    }
+  },
+  {
+    "event_id": "0922003057-object_checked_out-054-c9915a2f",
+    "event_type": "OBJECT_CHECKED_OUT",
+    "aggregate_type": "custody_record",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.517Z",
+    "version": 1,
+    "summary": "艺人周师傅 携《老旦影偶（明万历传世）》赴走马村晒谷场（走马村中秋场）",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "holder_id": "艺人-周",
+      "holder_name": "艺人周师傅",
+      "purpose": "走马村中秋场",
+      "location": "走马村晒谷场",
+      "handler_id": "演出经理-向"
+    },
+    "offline": {
+      "client_id": "device-向经理",
+      "client_seq": 1,
+      "previous_event_id": null
+    }
+  },
+  {
+    "event_id": "0922003057-custody_transferred-055-ab80b8c4",
+    "event_type": "CUSTODY_TRANSFERRED",
+    "aggregate_type": "custody_record",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.517Z",
+    "version": 2,
+    "summary": "交接：艺人周师傅 → 箱台李师傅@村戏台后场",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "from_holder_id": "艺人-周",
+      "to_holder_id": "stagehand-李",
+      "to_holder_name": "箱台李师傅",
+      "location": "村戏台后场",
+      "handler_id": "device-后场"
+    },
+    "offline": {
+      "client_id": "device-后场",
+      "client_seq": 1,
+      "previous_event_id": "0922003057-object_checked_out-054-c9915a2f"
+    }
+  },
+  {
+    "event_id": "0922003057-custody_transferred-056-9bc6480a",
+    "event_type": "CUSTODY_TRANSFERRED",
+    "aggregate_type": "custody_record",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.517Z",
+    "version": 3,
+    "summary": "（离线）交接给 押运王师傅",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "from_holder_id": "艺人-周",
+      "to_holder_id": "driver-王",
+      "to_holder_name": "押运王师傅",
+      "location": "返程车上",
+      "handler_id": "device-押运"
+    },
+    "offline": {
+      "client_id": "device-押运",
+      "client_seq": 1,
+      "previous_event_id": "0922003057-object_checked_out-054-c9915a2f"
+    }
+  },
+  {
+    "event_id": "0922003057-custody_dispute_detected-057-43a6ecab",
+    "event_type": "CUSTODY_DISPUTE_DETECTED",
+    "aggregate_type": "custody_record",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.517Z",
+    "version": 4,
+    "summary": "检测到位置分叉，冻结为待复核：《老旦影偶（明万历传世）》",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "competing_event_ids": [
+        "0922003057-custody_transferred-055-ab80b8c4",
+        "0922003057-object_checked_out-054-c9915a2f",
+        "0922003057-custody_transferred-056-9bc6480a"
+      ],
+      "detail": "离线交接分叉：箱台李师傅（链上）与 押运王师傅（离线提交）均主张持有《老旦影偶（明万历传世）》",
+      "detected_by": "device-押运"
+    }
+  },
+  {
+    "event_id": "0922003057-custody_reconciled-058-c17fed4a",
+    "event_type": "CUSTODY_RECONCILED",
+    "aggregate_type": "custody_record",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.518Z",
+    "version": 5,
+    "summary": "位置争议复核归位：村戏台后场（持有人 stagehand-李）",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "holder_id": "stagehand-李",
+      "location": "村戏台后场",
+      "reconciled_by": "演出经理-向",
+      "note": "电话核实：影偶确在李师傅箱内，押运车装的是道具箱"
+    }
+  },
+  {
+    "event_id": "0922003057-custody_transferred-059-d9b70c86",
+    "event_type": "CUSTODY_TRANSFERRED",
+    "aggregate_type": "custody_record",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.518Z",
+    "version": 6,
+    "summary": "交接：位置争议（待复核） → 艺人周师傅@返程车上",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "from_holder_id": "stagehand-李",
+      "to_holder_id": "艺人-周",
+      "to_holder_name": "艺人周师傅",
+      "location": "返程车上",
+      "handler_id": "演出经理-向"
+    }
+  },
+  {
+    "event_id": "0922003057-object_returned-060-bddb5f83",
+    "event_type": "OBJECT_RETURNED",
+    "aggregate_type": "custody_record",
+    "aggregate_id": "PP-老旦-001",
+    "occurred_at": "2026-09-22T00:30:57.518Z",
+    "version": 7,
+    "summary": "《老旦影偶（明万历传世）》清点完整，归库",
+    "payload": {
+      "object_id": "PP-老旦-001",
+      "returned_by": "艺人-周",
+      "received_by": "库管-赵",
+      "location": "传习所库房",
+      "complete": true,
+      "missing_part_ids": []
+    }
+  }
+]

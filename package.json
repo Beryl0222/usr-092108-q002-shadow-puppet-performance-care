@@ -5,6 +5,12 @@
   "type": "module",
   "description": "领域事件基础校验",
   "scripts": {
-    "test": "node --test"
+    "test": "node --test",
+    "typecheck": "tsc",
+    "build:schema": "node scripts/build-schema.mjs",
+    "scenario": "node scripts/scenario.mjs"
+  },
+  "devDependencies": {
+    "typescript": "^5.9.3"
   }
 }

@@ -1,9 +1,23 @@
 {
   "event_id": "092108-002-sample-001",
-  "event_type": "OBJECT_INSPECTED",
+  "event_type": "OBJECT_REGISTERED",
   "aggregate_type": "puppet_object",
-  "aggregate_id": "shadow_puppet_performance_care-001",
+  "aggregate_id": "PP-老旦-001",
   "occurred_at": "2026-09-20T18:00:00+08:00",
   "version": 1,
-  "summary": "登记皮影古件演出保全的首条领域记录"
+  "summary": "登记影偶《老旦影偶（明万历传世）》（一级文物）",
+  "payload": {
+    "object_id": "PP-老旦-001",
+    "name": "老旦影偶（明万历传世）",
+    "grade": "一级文物",
+    "dynasty": "明万历",
+    "year_estimate": "约1580年代（四百余年）",
+    "registered_by": "传承人-田",
+    "parts": [
+      { "part_id": "P-头茬", "name": "头茬", "condition": "完好" },
+      { "part_id": "P-胸腹", "name": "胸腹", "condition": "完好" },
+      { "part_id": "P-左臂", "name": "左臂", "condition": "完好" },
+      { "part_id": "P-右臂", "name": "右臂", "condition": "完好" }
+    ]
+  }
 }

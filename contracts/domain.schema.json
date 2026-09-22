@@ -19,19 +19,40 @@
     "event_type": {
       "type": "string",
       "enum": [
+        "OBJECT_REGISTERED",
         "OBJECT_INSPECTED",
-        "PERFORMANCE_PLANNED",
-        "SUBSTITUTE_ASSIGNED",
+        "DAMAGE_REPORTED",
+        "PART_CLEARED",
         "REPAIR_RECORDED",
-        "CLEARANCE_GRANTED"
+        "REPERTOIRE_SET",
+        "SUBSTITUTE_APPROVED",
+        "ENVIRONMENT_RECORDED",
+        "PERFORMANCE_PLANNED",
+        "ROLE_CAST",
+        "STAGE_CLEARANCE_REQUESTED",
+        "CLEARANCE_GRANTED",
+        "CLEARANCE_DENIED",
+        "ROLE_SUBSTITUTED",
+        "PERFORMANCE_CLOSED",
+        "OBJECT_CHECKED_OUT",
+        "CUSTODY_TRANSFERRED",
+        "OBJECT_RETURNED",
+        "CUSTODY_DISPUTE_DETECTED",
+        "CUSTODY_RECONCILED",
+        "APPRENTICE_ENROLLED",
+        "TRAINING_LOGGED",
+        "TRAINING_REVIEWED",
+        "QUALIFICATION_GRANTED"
       ]
     },
     "aggregate_type": {
       "type": "string",
       "enum": [
         "puppet_object",
-        "performance_plan",
         "conservation_action",
+        "environment_record",
+        "performance_plan",
+        "custody_record",
         "operator_clearance"
       ]
     },
@@ -50,7 +71,1251 @@
     "summary": {
       "type": "string",
       "minLength": 1
+    },
+    "payload": {
+      "type": "object"
+    },
+    "offline": {
+      "type": "object",
+      "required": [
+        "client_id",
+        "client_seq"
+      ],
+      "properties": {
+        "client_id": {
+          "type": "string",
+          "minLength": 1
+        },
+        "client_seq": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "previous_event_id": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "minLength": 1
+        }
+      },
+      "additionalProperties": false
     }
   },
+  "oneOf": [
+    {
+      "properties": {
+        "event_type": {
+          "const": "OBJECT_REGISTERED"
+        },
+        "aggregate_type": {
+          "const": "puppet_object"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "name",
+            "grade",
+            "registered_by",
+            "parts"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "grade": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "一级文物",
+                "二级文物",
+                "一般文物",
+                "现代道具",
+                "核准复制品"
+              ]
+            },
+            "dynasty": {
+              "type": "string",
+              "minLength": 1
+            },
+            "year_estimate": {
+              "type": "string",
+              "minLength": 1
+            },
+            "registered_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "parts": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "part_id",
+                  "name",
+                  "condition"
+                ],
+                "properties": {
+                  "part_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "name": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "condition": {
+                    "type": "string",
+                    "minLength": 1,
+                    "enum": [
+                      "完好",
+                      "开裂",
+                      "虫蛀",
+                      "酥脆",
+                      "已修复待复检"
+                    ]
+                  }
+                },
+                "additionalProperties": true
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "OBJECT_INSPECTED"
+        },
+        "aggregate_type": {
+          "const": "puppet_object"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "inspector_id",
+            "findings"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "inspector_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "findings": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "part_id",
+                  "condition"
+                ],
+                "properties": {
+                  "part_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "condition": {
+                    "type": "string",
+                    "minLength": 1,
+                    "enum": [
+                      "完好",
+                      "开裂",
+                      "虫蛀",
+                      "酥脆",
+                      "已修复待复检"
+                    ]
+                  },
+                  "note": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "additionalProperties": true
+              }
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "DAMAGE_REPORTED"
+        },
+        "aggregate_type": {
+          "const": "puppet_object"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "reporter_id",
+            "findings"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reporter_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "findings": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "object",
+                "required": [
+                  "part_id",
+                  "condition"
+                ],
+                "properties": {
+                  "part_id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "condition": {
+                    "type": "string",
+                    "minLength": 1,
+                    "enum": [
+                      "开裂",
+                      "虫蛀",
+                      "酥脆"
+                    ]
+                  },
+                  "note": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "additionalProperties": true
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "PART_CLEARED"
+        },
+        "aggregate_type": {
+          "const": "puppet_object"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "part_id",
+            "inspector_id"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "part_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "inspector_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "REPAIR_RECORDED"
+        },
+        "aggregate_type": {
+          "const": "conservation_action"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "repair_id",
+            "object_id",
+            "part_id",
+            "restorer_id",
+            "materials",
+            "techniques"
+          ],
+          "properties": {
+            "repair_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "part_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "restorer_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "apprentice_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "materials": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "techniques": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "REPERTOIRE_SET"
+        },
+        "aggregate_type": {
+          "const": "puppet_object"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "plays",
+            "updated_by"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "plays": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "updated_by": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "SUBSTITUTE_APPROVED"
+        },
+        "aggregate_type": {
+          "const": "puppet_object"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "replica_id",
+            "role_id",
+            "approved_by"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "replica_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "role_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "approved_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "ENVIRONMENT_RECORDED"
+        },
+        "aggregate_type": {
+          "const": "environment_record"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "reading_id",
+            "location",
+            "humidity",
+            "temperature",
+            "recorded_by"
+          ],
+          "properties": {
+            "reading_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "humidity": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 100
+            },
+            "temperature": {
+              "type": "number",
+              "minimum": -40,
+              "maximum": 60
+            },
+            "recorded_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "performance_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "PERFORMANCE_PLANNED"
+        },
+        "aggregate_type": {
+          "const": "performance_plan"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "performance_id",
+            "title",
+            "venue",
+            "purpose",
+            "scheduled_start",
+            "scheduled_end",
+            "ticket_sold",
+            "planned_by"
+          ],
+          "properties": {
+            "performance_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "title": {
+              "type": "string",
+              "minLength": 1
+            },
+            "venue": {
+              "type": "string",
+              "minLength": 1
+            },
+            "purpose": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "排练",
+                "正式演出"
+              ]
+            },
+            "scheduled_start": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scheduled_end": {
+              "type": "string",
+              "minLength": 1
+            },
+            "ticket_sold": {
+              "type": "boolean"
+            },
+            "planned_by": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "ROLE_CAST"
+        },
+        "aggregate_type": {
+          "const": "performance_plan"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "performance_id",
+            "role_id",
+            "role_name",
+            "object_id",
+            "operator_id"
+          ],
+          "properties": {
+            "performance_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "role_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "role_name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "operator_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "part_ids": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "STAGE_CLEARANCE_REQUESTED"
+        },
+        "aggregate_type": {
+          "const": "performance_plan"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "performance_id",
+            "role_id",
+            "object_id",
+            "reading_id",
+            "requested_by"
+          ],
+          "properties": {
+            "performance_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "role_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reading_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "requested_by": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "CLEARANCE_GRANTED"
+        },
+        "aggregate_type": {
+          "const": "performance_plan"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "performance_id",
+            "role_id",
+            "object_id",
+            "granted_by"
+          ],
+          "properties": {
+            "performance_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "role_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "granted_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "scope_part_ids": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "special_approval": {
+              "type": "object",
+              "required": [
+                "reference",
+                "approver",
+                "reason"
+              ],
+              "properties": {
+                "reference": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "approver": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "reason": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "additionalProperties": true
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "CLEARANCE_DENIED"
+        },
+        "aggregate_type": {
+          "const": "performance_plan"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "performance_id",
+            "role_id",
+            "object_id",
+            "decided_by",
+            "reasons"
+          ],
+          "properties": {
+            "performance_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "role_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "decided_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reasons": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "ROLE_SUBSTITUTED"
+        },
+        "aggregate_type": {
+          "const": "performance_plan"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "performance_id",
+            "role_id",
+            "from_object_id",
+            "to_object_id",
+            "reason",
+            "decided_by"
+          ],
+          "properties": {
+            "performance_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "role_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "from_object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "to_object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reason": {
+              "type": "string",
+              "minLength": 1
+            },
+            "decided_by": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "PERFORMANCE_CLOSED"
+        },
+        "aggregate_type": {
+          "const": "performance_plan"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "performance_id",
+            "closed_by"
+          ],
+          "properties": {
+            "performance_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "closed_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "OBJECT_CHECKED_OUT"
+        },
+        "aggregate_type": {
+          "const": "custody_record"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "holder_id",
+            "holder_name",
+            "purpose",
+            "location",
+            "handler_id"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "holder_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "holder_name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "purpose": {
+              "type": "string",
+              "minLength": 1
+            },
+            "location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "expected_return": {
+              "type": "string",
+              "minLength": 1
+            },
+            "handler_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "CUSTODY_TRANSFERRED"
+        },
+        "aggregate_type": {
+          "const": "custody_record"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "from_holder_id",
+            "to_holder_id",
+            "to_holder_name",
+            "location",
+            "handler_id"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "from_holder_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "to_holder_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "to_holder_name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "handler_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "OBJECT_RETURNED"
+        },
+        "aggregate_type": {
+          "const": "custody_record"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "returned_by",
+            "received_by",
+            "location",
+            "complete"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "returned_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "received_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "complete": {
+              "type": "boolean"
+            },
+            "missing_part_ids": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "CUSTODY_DISPUTE_DETECTED"
+        },
+        "aggregate_type": {
+          "const": "custody_record"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "competing_event_ids",
+            "detail",
+            "detected_by"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "competing_event_ids": {
+              "type": "array",
+              "minItems": 1,
+              "items": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "detail": {
+              "type": "string",
+              "minLength": 1
+            },
+            "detected_by": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "CUSTODY_RECONCILED"
+        },
+        "aggregate_type": {
+          "const": "custody_record"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "object_id",
+            "location",
+            "reconciled_by",
+            "note"
+          ],
+          "properties": {
+            "object_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "holder_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "location": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reconciled_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "APPRENTICE_ENROLLED"
+        },
+        "aggregate_type": {
+          "const": "operator_clearance"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "apprentice_id",
+            "name",
+            "minor",
+            "master_id"
+          ],
+          "properties": {
+            "apprentice_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "minor": {
+              "type": "boolean"
+            },
+            "master_id": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "TRAINING_LOGGED"
+        },
+        "aggregate_type": {
+          "const": "operator_clearance"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "apprentice_id",
+            "discipline",
+            "level",
+            "logged_by"
+          ],
+          "properties": {
+            "apprentice_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "discipline": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "操控",
+                "制作",
+                "修补"
+              ]
+            },
+            "level": {
+              "type": "string",
+              "minLength": 1
+            },
+            "logged_by": {
+              "type": "string",
+              "minLength": 1
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "TRAINING_REVIEWED"
+        },
+        "aggregate_type": {
+          "const": "operator_clearance"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "apprentice_id",
+            "discipline",
+            "level",
+            "reviewer_id",
+            "passed"
+          ],
+          "properties": {
+            "apprentice_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "discipline": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "操控",
+                "制作",
+                "修补"
+              ]
+            },
+            "level": {
+              "type": "string",
+              "minLength": 1
+            },
+            "reviewer_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "passed": {
+              "type": "boolean"
+            },
+            "note": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    },
+    {
+      "properties": {
+        "event_type": {
+          "const": "QUALIFICATION_GRANTED"
+        },
+        "aggregate_type": {
+          "const": "operator_clearance"
+        },
+        "payload": {
+          "type": "object",
+          "required": [
+            "apprentice_id",
+            "discipline",
+            "level",
+            "granted_by"
+          ],
+          "properties": {
+            "apprentice_id": {
+              "type": "string",
+              "minLength": 1
+            },
+            "discipline": {
+              "type": "string",
+              "minLength": 1,
+              "enum": [
+                "操控",
+                "制作",
+                "修补"
+              ]
+            },
+            "level": {
+              "type": "string",
+              "minLength": 1
+            },
+            "granted_by": {
+              "type": "string",
+              "minLength": 1
+            }
+          },
+          "additionalProperties": true
+        }
+      }
+    }
+  ],
   "additionalProperties": true
 }
